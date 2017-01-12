@@ -1,0 +1,57 @@
+buildscript {
+	ext.derbyVersion = '10.12.1.1'
+
+	repositories {
+        mavenCentral()		
+    	jcenter()
+	}
+
+  	dependencies {
+	    classpath "org.apache.derby:derbyclient:${derbyVersion}"
+  }
+}
+
+configurations {
+    derbydb
+}
+
+dependencies {
+    runtime "org.apache.derby:derbyclient:${derbyVersion}"
+
+    derbydb "org.apache.derby:derby:${derbyVersion}"
+    derbydb "org.apache.derby:derbyclient:${derbyVersion}"
+    derbydb "org.apache.derby:derbynet:${derbyVersion}"
+    derbydb "org.apache.derby:derbytools:${derbyVersion}"
+    derbydb "org.apache.derby:derbyoptionaltools:${derbyVersion}"
+}
+
+def DERBY_GROUP = 'derby'
+
+task derbyStart(type: JavaExec) {
+  classpath = configurations.derbydb
+  main = 'org.apache.derby.drda.NetworkServerControl'
+    args = [
+            "start", "-noSecurityManager"
+           ]
+}
+
+task derbyCreateDb(type: JavaExec) {
+  classpath = configurations.derbydb
+  main = 'org.apache.derby.tools.ij'
+  standardInput = new ByteArrayInputStream((
+  	"connect 'jdbc:derby://localhost:1527/restJpaDb;create=true;user=restjpa;password=restjpa';\n" +
+  	"CREATE SCHEMA RESTJPA;"
+  	).getBytes());
+}
+
+task derbyStop(type: JavaExec) {
+  classpath = configurations.derbydb
+  main = 'org.apache.derby.drda.NetworkServerControl'
+    args = [
+            "shutdown",
+           ]
+}
+
+derbyStart.group = DERBY_GROUP
+derbyCreateDb.group = DERBY_GROUP
+derbyStop.group = DERBY_GROUP
