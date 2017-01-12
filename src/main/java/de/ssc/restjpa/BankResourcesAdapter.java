@@ -10,7 +10,6 @@ public class BankResourcesAdapter {
 
 	public List<Bank> adapt(List<BankEntity> list) {
 		return list.stream().map(be -> adapt(be)).collect(Collectors.toList());
-//		ArrayList<Bank> resList = new ArrayList<Bank>();
 //		for (BankEntity bankEntity : list) {
 //
 //			Bank bank = new Bank();
@@ -30,7 +29,7 @@ public class BankResourcesAdapter {
 		bank.setDescription(entity.getDescription());
 		bank.setId(entity.getId());
 		bank.setServerAdress(entity.getServerAdress());
-		
+		 
 		return bank;
 	}
 
