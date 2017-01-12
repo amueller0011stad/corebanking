@@ -10,6 +10,7 @@ public class BankResourcesAdapter {
 
 	public List<Bank> adapt(List<BankEntity> list) {
 		return list.stream().map(be -> adapt(be)).collect(Collectors.toList());
+//		ArrayList<Bank> resList = new ArrayList<Bank>();   
 //		for (BankEntity bankEntity : list) {
 //
 //			Bank bank = new Bank();
