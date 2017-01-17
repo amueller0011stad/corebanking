@@ -1,0 +1,55 @@
+{
+	"id": "47a617d5-565d-ff58-09f9-df1f0d4d7922",
+	"name": "restJpa",
+	"description": "",
+	"order": [
+		"815fcea5-d21f-a76b-8981-0e9f13d2424d",
+		"de005d68-07e2-0816-f68f-c60e31a40c7d"
+	],
+	"folders": [],
+	"timestamp": 1484680524427,
+	"owner": "1469228",
+	"public": false,
+	"requests": [
+		{
+			"id": "815fcea5-d21f-a76b-8981-0e9f13d2424d",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:8080/RestJpa/corebanking/banks/create",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1484681896106,
+			"name": "banksCreate",
+			"description": "",
+			"collectionId": "47a617d5-565d-ff58-09f9-df1f0d4d7922",
+			"responses": [],
+			"rawModeData": "{\"bankNumber\":3322,\"description\":\"Demo\",\"serverAdress\":\"localhost\"}"
+		},
+		{
+			"id": "de005d68-07e2-0816-f68f-c60e31a40c7d",
+			"headers": "",
+			"url": "http://localhost:8080/RestJpa/corebanking/banks/list",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "47a617d5-565d-ff58-09f9-df1f0d4d7922",
+			"data": null,
+			"dataMode": "params",
+			"name": "banksList",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1484682017434,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
