@@ -24,10 +24,10 @@ public class BanksRequestTest
 	@Test
 	public void testServiceCall()
 	{
-		// 1. Datensatz einfügen
+		// 1. Datensatz einfÃ¼gen
 		// Web Resource erzeugen
 		WebResource webRes = Client.create().resource("http://localhost:8080/RestJpa");
-		// JSon Objekt mit den einzufügenden Bankdaten erzeugen
+		// JSon Objekt mit den einzufÃ¼genden Bankdaten erzeugen
 		Bank bank = new Bank();
 		bank.setBankNumber(4713);
 		bank.setDescription("Deutsche Kartoffelbank");

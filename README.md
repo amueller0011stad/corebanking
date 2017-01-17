@@ -28,4 +28,6 @@
  - Andere DB-Zufgriffsmögichkeiten demonstrieren (Named Querys, JPQL, ...)
  - ....
  
- 
+### Jersey 
+1. jersey-bundle-1.8.jar
+2. Benötigt wird org.json.jar
