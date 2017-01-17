@@ -31,3 +31,8 @@
 ### Jersey 
 1. jersey-bundle-1.8.jar
 2. Benötigt wird org.json.jar
+
+### Postman
+* Postman Chrome Plugin installieren
+* Collection aus Ordner postman/ importieren
+* Vorhandene Request zum Testen der Api verwenden
