@@ -9,11 +9,12 @@
  - Download/clone.
  - Im Eclipse: Import as Gradle Project
  - DB Setup -> siehe unten
- - bei den Gradle-Tasks JettyRun aufrufen
+ - bei den Gradle-Tasks gretty -> appRun aufrufen
  - im Browser dann 
-    - http://localhost:8080/RestJpa/corebanking/banks/list Liste aller Banken
+    - http://localhost:8080/corebanking/corebanking/banks/list Liste aller Banken
     Beispieloutput: [{"id":1,"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}]
- - f√ºr ein create: curl -H "Content-Type: application/json" -X PUT -d '{"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}' http://localhost:8080/RestJpa/corebanking/banks/create
+ - f√ºr ein create: curl -H "Content-Type: application/json" -X PUT -d '{"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}' http://localhost:8080/corebanking/corebanking/banks/create
+ - Zum Debuggen appRunDebug w‰hlen und einen Remotedebugger auf Port 5005 starten
 
 ### Gradle Tasks f&uuml;r den DB-Setup
  - derbyStart: Startet derby
@@ -29,6 +30,7 @@
  - ....
  
 ### Jersey 
+0. Wird nicht mehr benˆtigt.
 1. jersey-bundle-1.8.jar
 2. Ben√∂tigt wird org.json.jar
 
