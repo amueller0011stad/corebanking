@@ -10,4 +10,6 @@ public interface BankSc {
 
     List<BankEntity> list();
 
+	List<BankEntity> listWithDs();
+
 }

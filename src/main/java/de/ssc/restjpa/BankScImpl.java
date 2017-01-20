@@ -65,4 +65,25 @@ public class BankScImpl implements BankSc {
 		return list;
 	}
 
+	@Override
+	public List<BankEntity> listWithDs() {
+		EntityManager entityManager = Persistence.createEntityManagerFactory("REST_JPA_DS").createEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		List<BankEntity> list = null;
+		try {
+			transaction.begin();
+			TypedQuery<BankEntity> nq = entityManager.createNamedQuery("list", BankEntity.class);
+			list = nq.getResultList();
+			transaction.commit();
+		} catch (Exception e) {
+			Logger.getLogger(getClass()).error("Problem reading", e);
+			transaction.rollback();
+			throw e;
+		} finally {
+			entityManager.clear();
+			entityManager.close();
+		}
+		return list;
+	}
+
 }

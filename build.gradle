@@ -58,7 +58,10 @@ flyway {
 
 // Weitere Optionen: http://akhikhl.github.io/gretty-doc/Gretty-configuration.html
 gretty {
+	servletContainer = 'jetty9'
 	port = 8080
 	fileLogEnabled = false
 	managedClassReload = true
+	loggingLevel = 'DEBUG'
+//	contextConfigFile = 'jetty9-env.xml'
 }
