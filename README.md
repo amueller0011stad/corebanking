@@ -13,7 +13,7 @@
  - im Browser dann 
     - http://localhost:8080/corebanking/corebanking/banks/list Liste aller Banken
     Beispieloutput: [{"id":1,"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}]
- - fÃ¼r ein create: curl -H "Content-Type: application/json" -X PUT -d '{"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}' http://localhost:8080/corebanking/corebanking/banks/create
+ - für ein create: curl -H "Content-Type: application/json" -X PUT -d '{"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}' http://localhost:8080/corebanking/corebanking/banks/create
  - Zum Debuggen appRunDebug wählen und einen Remotedebugger auf Port 5005 starten
 
 ### Gradle Tasks f&uuml;r den DB-Setup
@@ -26,15 +26,22 @@
  - Weitere Zugriffsmethode (Delete, Update, Get by Id, ...)
  - Jetty Plugin ersetzen durch gretty
  . Gradle nimmt zu bauen die Java-Version mit der Eclipse gestartet wurde. Das finde ich suboptimal
- - Andere DB-ZufgriffsmÃ¶gichkeiten demonstrieren (Named Querys, JPQL, ...)
+ - Andere DB-Zufgriffsmögichkeiten demonstrieren (Named Querys, JPQL, ...)
  - ....
  
 ### Jersey 
 0. Wird nicht mehr benötigt.
 1. jersey-bundle-1.8.jar
-2. BenÃ¶tigt wird org.json.jar
+2. Benötigt wird org.json.jar
 
 ### Postman
 * Postman Chrome Plugin installieren
 * Collection aus Ordner postman/ importieren
 * Vorhandene Request zum Testen der Api verwenden
+
+### Integration
+ * [AWS Installnotes](config/AwsInstallNotest.md)
+ * Jenkins: http://ec2-52-59-213-218.eu-central-1.compute.amazonaws.com:8080/
+ * Tomcat: http://ec2-52-59-213-218.eu-central-1.compute.amazonaws.com:8090/
+ * Anwendung: http://ec2-52-59-213-218.eu-central-1.compute.amazonaws.com:8090/corebanking/corebanking/banks/listWithDs
+ 

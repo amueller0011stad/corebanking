@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<!-- jetty Konfiguration -->
+<Configure id='wac' class="org.eclipse.jetty.webapp.WebAppContext">
+	<New id="database" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>jdbc/database</Arg>
+		<Arg>
+			<New class="org.apache.derby.jdbc.ClientDataSource">
+				<Set name="DatabaseName">restJpaDb</Set>
+				<Set name="User">restjpa</Set>
+				<Set name="Password">restjpa</Set>
+				<Set name="ServerName">localhost</Set>
+				<Set name="PortNumber">1527</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>
