@@ -52,6 +52,8 @@ public class BanksRequest {
 		List<BankEntity> list = mModel.listWithDs();
 		List<Bank> resList = mAdapter.adapt(list);
 		
+		resList.get(0).setDescription("CI - Test");
+		
 		LoggerFactory.getLogger(this.getClass()).info("end - listWithDs()");
 		return resList;
 	}
