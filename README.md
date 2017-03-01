@@ -13,8 +13,8 @@
  - im Browser dann 
     - http://localhost:8080/corebanking/corebanking/banks/list Liste aller Banken
     Beispieloutput: [{"id":1,"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}]
- - für ein create: curl -H "Content-Type: application/json" -X PUT -d '{"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}' http://localhost:8080/corebanking/corebanking/banks/create
- - Zum Debuggen appRunDebug wählen und einen Remotedebugger auf Port 5005 starten
+ - fÃ¼r ein create: curl -H "Content-Type: application/json" -X PUT -d '{"bankNumber":3321,"description":"Demo","serverAdress":"localhost"}' http://localhost:8080/corebanking/corebanking/banks/create
+ - Zum Debuggen appRunDebug wÃ¤hlen und einen Remotedebugger auf Port 5005 starten
 
 ### Gradle Tasks f&uuml;r den DB-Setup
  - derbyStart: Startet derby
@@ -26,13 +26,13 @@
  - Weitere Zugriffsmethode (Delete, Update, Get by Id, ...)
  - Jetty Plugin ersetzen durch gretty
  . Gradle nimmt zu bauen die Java-Version mit der Eclipse gestartet wurde. Das finde ich suboptimal
- - Andere DB-Zufgriffsmögichkeiten demonstrieren (Named Querys, JPQL, ...)
+ - Andere DB-ZufgriffsmÃ¶gichkeiten demonstrieren (Named Querys, JPQL, ...)
  - ....
  
 ### Jersey 
-0. Wird nicht mehr benötigt.
+0. Wird nicht mehr benÃ¶tigt.
 1. jersey-bundle-1.8.jar
-2. Benötigt wird org.json.jar
+2. BenÃ¶tigt wird org.json.jar
 
 ### Postman
 * Postman Chrome Plugin installieren
