@@ -12,7 +12,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.jackson.JacksonFeature;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import de.ssc.restjpa.model.Bank;
@@ -25,8 +24,7 @@ import de.ssc.restjpa.model.Bank;
  */
 public class BanksRequestTest
 {
-	// AJM Das ist kein Test der von Gradle beim bauen oder vom Jenkins ausgefuehrt werden sollte. Deshalb erst mal auf ignore.
-	@Ignore @Test
+	@Test
 	public void testServiceCall()
 	{
 		listBanks();

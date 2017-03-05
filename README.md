@@ -21,6 +21,11 @@
  - derbyCreateDb: legt die Datenbank an die wir benutzen, muss nur einmal aufgerufen werden
  - flywayMigrate: legt die Datenbanktabellen an, muss nur einmal aufgerufen werden
 
+### Tests
+Die Tests sind separiert in Unittest und Integrationstests. Die normalen Unittests sind im Verzeichnis test, die Integrationstests
+im Verzeichnis itest. Zum Ausführen der Integrationstests gibt es den Gradle Taske verification->itest.
+Es gibt außerdem dependency configurations Namens iTestCompile und iTestRuntime für Integrationstestspezifische Abhängigkeiten.
+
 ### Erweiterungsm&ouml;glichkeiten:
  - REST-Api mit Swagger beschreiben
  - Weitere Zugriffsmethode (Delete, Update, Get by Id, ...)
@@ -29,11 +34,6 @@
  - Andere DB-Zufgriffsmögichkeiten demonstrieren (Named Querys, JPQL, ...)
  - ....
  
-### Jersey 
-0. Wird nicht mehr benötigt.
-1. jersey-bundle-1.8.jar
-2. Benötigt wird org.json.jar
-
 ### Postman
 * Postman Chrome Plugin installieren
 * Collection aus Ordner postman/ importieren
