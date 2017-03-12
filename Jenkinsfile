@@ -1,36 +1,33 @@
 echo 'Hallo Pipeline'
 
 node {
-	stage 'checkout'
-	checkout scm
-
-	stage 'build'
-	if (isUnix()) {
-		sh './gradlew clean build'
-	} else {
-		bat './gradlew.bat clean build'
+	
+	stage('Checkout') {
+		checkout scm
+	}
+	
+	stage('Build') {
+		 execGradle('clean build');
+	}
+	
+	stage('Results') {
+	   junit '**/build/test-results/test/TEST-*.xml'
+	   archive '**/build/libs/*.war'
 	}
 
-	stage 'test'
-	if (isUnix()) {
-		sh './gradlew test'
-	} else {
-		bat './gradlew.bat test'
+	stage('Postbuild') {
+		if (isUnix()) {
+			sh 'ls -la'
+		} else {
+			bat 'dir'
+		}
 	}
-	step([$class: 'JUnitResultArchiver', testResults: '**/target/test-results/TEST-*.xml'])
-
-	stage 'package'
+}
+ 
+def execGradle(command) {
 	if (isUnix()) {
-		sh './gradlew bootRepackage'
+		sh "./gradlew $command"
 	} else {
-		bat './gradlew.bat bootRepackage'
-	}
-	step([$class: 'ArtifactArchiver', artifacts: '**/build/libs/*.war', fingerprint: true])
-
-	stage: 'postbuild'
-	if (isUnix()) {
-		sh 'ls -la'
-	} else {
-		bat 'dir'
+		bat "./gradlew.bat $command"
 	}
 }
