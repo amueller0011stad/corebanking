@@ -1,5 +1,9 @@
 package de.ssc.restjpa;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+
 import java.util.List;
 
 import javax.ws.rs.client.Client;
@@ -18,12 +22,16 @@ import de.ssc.restjpa.model.Bank;
 
 /**
  * Testklasse um den Servicecall mit create und list auszuprobieren.
+ * .\gradlew.bat -Dcorebanking.base.url="http://localhost:8080/corebanking" itest
  * 
  * @author ufreise
  *
  */
 public class BanksRequestTest
 {
+	private static final String DEFAULT_BASE_URL = "http://localhost:8080/corebanking";
+	private static final String BASE_URL_PROPERTY = "corebanking.base.url";
+	
 	@Test
 	public void testServiceCall()
 	{
@@ -39,7 +47,7 @@ public class BanksRequestTest
 		
 		Client client = ClientBuilder.newClient(clientConfig);
 
-		WebTarget webTarget = client.target("http://localhost:8080/corebanking/corebanking/banks/list");
+		WebTarget webTarget = client.target(getBaseUrl() + "/corebanking/banks/list");
 
 		Builder request = webTarget.request();
 		request.header("Content-type", MediaType.APPLICATION_JSON);
@@ -64,11 +72,19 @@ public class BanksRequestTest
 		
 		Client client = ClientBuilder.newClient(clientConfig);
 
-		Builder request = client.target("http://localhost:8080/corebanking/corebanking/banks/create").request();
+		Builder request = client.target(getBaseUrl() + "/corebanking/banks/create").request();
 		request.header("Content-type", MediaType.APPLICATION_JSON);
 		Bank createdBank = request.buildPut(Entity.json(bank)).invoke(new GenericType<Bank>() {});
 
+		assertThat(createdBank, is(notNullValue()));
+
 		System.out.println("Bank with id " + createdBank.getId() + " created");
+	}
+	
+	private String getBaseUrl()
+	{
+		System.out.println(System.getProperty(BASE_URL_PROPERTY, DEFAULT_BASE_URL));
+		return System.getProperty(BASE_URL_PROPERTY, DEFAULT_BASE_URL);
 	}
 	
 	public static void main(String[] args) {
