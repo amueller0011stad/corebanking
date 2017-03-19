@@ -10,9 +10,13 @@ node {
 		 execGradle('clean build');
 	}
 	
+	stage('Integrationtests') {
+		execGradle('-Dcorebanking.base.url=http://localhost:8090/corebanking itest');
+   }
+
 	stage('Results') {
-	   junit '**/build/test-results/test/TEST-*.xml'
-	   archive '**/build/libs/*.war'
+		junit '**/build/test-results/*/TEST-*.xml'
+		archive '**/build/libs/*.war'
 	}
 
 	stage('Postbuild') {
