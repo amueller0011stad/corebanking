@@ -35,6 +35,7 @@ testSets {
 }
 
 tasks.withType(Test) { systemProperty 'corebanking.base.url', System.getProperty('corebanking.base.url', 'http://localhost:8080/corebanking') }
+iTest.outputs.upToDateWhen { false }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.1'
