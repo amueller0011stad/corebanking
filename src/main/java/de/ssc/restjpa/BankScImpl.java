@@ -20,7 +20,7 @@ public class BankScImpl implements BankSc {
 	@Override
 	public BankEntity add(int bankNumber, String description, String serverAdress) {
 
-		EntityManager entityManager = Persistence.createEntityManagerFactory("REST_JPA").createEntityManager();
+		EntityManager entityManager = Persistence.createEntityManagerFactory("REST_JPA_DS").createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
@@ -46,7 +46,7 @@ public class BankScImpl implements BankSc {
 	@Override
 	public List<BankEntity> list() {
 
-		EntityManager entityManager = Persistence.createEntityManagerFactory("REST_JPA").createEntityManager();
+		EntityManager entityManager = Persistence.createEntityManagerFactory("REST_JPA_DS").createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		List<BankEntity> list = null;
 		try {
