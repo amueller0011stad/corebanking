@@ -11,6 +11,9 @@ node {
 	}
 	
 	stage('Deploy') {
+//		sshagent(['CREDENTIALS_ID']) {
+//			sh 'scp tlt/target/tlt.war some-remote-host:/LOCATION/TOMCAT/webapps/'
+//		}
 		sh 'sudo -u tomcat cp build/libs/corebanking-0.1.0.war /usr/share/tomcat8/webapps/RestJpa.war'
 		sleep 2
 	}
