@@ -70,4 +70,7 @@
     35  swapon /dev/xvdf
     36  free -m
     37  history
+    38 touch /etc/sudoers.d/jenkins
+    39 chmod 0440 /etc/sudoers.d/jenkins
+    40 jenkins ALL = (tomcat) NOPASSWD: /bin/cp
   

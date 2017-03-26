@@ -7,12 +7,17 @@ node {
 	}
 	
 	stage('Build') {
-		 execGradle('clean build');
+		execGradle('clean build');
 	}
 	
+	stage('Deploy') {
+		sh 'sudo -u tomcat cp build/libs/corebanking-0.1.0.war /usr/share/tomcat8/webapps/RestJpa.war'
+		sleep 2
+	}
+
 	stage('Integrationtests') {
 		execGradle('-Dcorebanking.base.url=http://localhost:8090/corebanking itest');
-   }
+	}
 
 	stage('Results') {
 		junit '**/build/test-results/*/TEST-*.xml'
